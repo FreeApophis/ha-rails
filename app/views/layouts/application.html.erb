@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="raspberry screen">
+      <div class="topbar">
+        <div class="date"><%= l Date.today, format: :short %></div>
+        <div class="refresh fa fa-refresh fa-fw" onclick="history.go(0)"></div>
+        <div class="clock"><%= DateTime.now.strftime("%H:%M") %></div>
+      </div>
+      <div class="container">
+        <div class="sidebar">
+          <%= render 'menu' %>
+        </div>
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+
+
+    <div>
   </body>
 </html>
