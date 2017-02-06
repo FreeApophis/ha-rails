@@ -2,8 +2,16 @@
   <li>
     <a href="<%= root_path %>"><i class="fa fa-fw fa-2x fa-dashboard"></i></a>
   </li>
-  <li><a href="<%= lights_path %>"><i class="fa fa-fw fa-2x fa-lightbulb-o"></i></a></li>
+  <li>
+    <%= link_to lights_path do %>
+      <i class="fa fa-fw fa-2x fa-lightbulb-o"></i>
+    <% end %>
+  </li>
   <li><a href="http://foodblog.ch"><i class="fa fa-fw fa-2x fa-cutlery"></i></a></li>
-  <li><a href="http://sbb.ch"><i class="fa fa-fw fa-2x fa-bus"></i></a></li>
+  <li>
+    <%= link_to public_transport_path do %>
+      <i class="fa fa-fw fa-2x fa-bus"></i>
+    <% end %>
+  </li>
   <li><a href="http://sbb.ch"><i class="fa fa-fw fa-2x fa-image"></i></a></li>
 </ul>

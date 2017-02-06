@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :lights
-  root to: 'dashboard#index'
+  root to: 'dashboards#show'
 
-  resource :dashboard, only: [:index]
+  resource :dashboard, only: [:show]
+  resource :public_transport, only: [:show]
+
+  resources :lights
+  resources :recipes, only[:index, :show]
 end

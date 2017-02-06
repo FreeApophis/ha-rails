@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<%= @light.name %>
 
-<%= link_to 'Edit', edit_light_path(@light) %> |
-<%= link_to 'Back', lights_path %>
+
+<div>On: <%= @light.on? %></div>
+<div>Id: <%= @light.id %></div>
+<div>Bridge: <%= @light.bridge %></div>
+<div>Name: <%= @light.name %></div>
+<div>Hue: <%= @light.hue %></div>
+<div>Saturation: <%= @light.saturation %></div>
+<div>Brightness: <%= @light.brightness %></div>
+<div>X: <%= @light.x %></div>
+<div>Y: <%= @light.y %></div>
+<div>Color Temperature: <%= @light.color_temperature %></div>
+<div>Alert: <%= @light.alert %></div>
+<div>Effect: <%= @light.effect %></div>
+<div>Color Mode: <%= @light.color_mode %></div>
+<div>Type: <%= @light.type %></div>
+<div>Model: <%= @light.model %></div>
+<div>Software Version: <%= @light.software_version %></div>
+<div>Point Symbol: <%= @light.point_symbol %></div>

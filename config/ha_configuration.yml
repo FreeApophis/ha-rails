@@ -1,0 +1,15 @@
+default: &default
+  public_transport:
+    enabled: true
+    station: "Altstetten"
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
+
+

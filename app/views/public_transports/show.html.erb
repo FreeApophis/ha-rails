@@ -1,0 +1,26 @@
+<table id="stationboard">
+  <caption><%= HA_CONF['public_transport']['station'] %></caption>
+  <colgroup>
+    <col width="120">
+    <col width="140">
+    <col width="230">
+  </colgroup>
+  <thead>
+    <tr>
+      <th align="left">Zeit</th>
+      <th>&nbsp;</th>
+      <th align="left">Nach</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @board.each do |journey|%>
+      <tr>
+        <% departure = journey.stop.departure %>
+        <% delay = journey.stop.delay %>
+        <td><%= departure.strftime("%k:%M") %> <%= delay ? "+#{delay}" : "" %></td>
+        <td><%= journey.name %></td>
+        <td><%= journey.to %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

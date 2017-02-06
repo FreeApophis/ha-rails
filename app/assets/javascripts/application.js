@@ -13,4 +13,30 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require moment
 //= require_tree .
+
+
+var intervalStarted = false;
+
+function update() {
+  var now = new moment(); 
+  $("#date").text(now.format("D. MMM. YY"));
+  $("#time").text(now.format("H:mm:ss"));
+}  
+
+function refresh_page() {
+  console.log("refresh page start")
+  Turbolinks.visit(location.toString());
+  console.log("refresh page end")
+}  
+
+$( document ).on('turbolinks:load', function() {
+  $(function() {
+    update();
+    if(intervalStarted == false) {
+      intervalStarted = true;
+      setInterval(update, 1000);
+    }
+  });
+})

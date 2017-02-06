@@ -6,6 +6,7 @@ class LightsController < ApplicationController
   end
 
   def show
+    @light = Light.find params[:id]
   end
 
   def edit

@@ -12,9 +12,9 @@
   <body>
     <div class="raspberry screen">
       <div class="topbar">
-        <div class="date"><%= l Date.today, format: :short %></div>
-        <div class="refresh fa fa-refresh fa-fw" onclick="history.go(0)"></div>
-        <div class="clock"><%= DateTime.now.strftime("%H:%M") %></div>
+        <div id="date" class="date"></div>
+        <div class="refresh fa fa-refresh fa-fw" onclick="refresh_page()"></div>
+        <div id="time" class="clock"></div>
       </div>
       <div class="container">
         <div class="sidebar">
