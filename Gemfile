@@ -27,6 +27,9 @@ gem "font-awesome-rails"
 # Library to control Lights from Philips Hue
 gem 'hue'
 
+# Library to access swiss public transport information
+gem 'transport-opendata'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
