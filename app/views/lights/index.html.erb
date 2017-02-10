@@ -1,6 +1,8 @@
 <% @lights.each do |light| %>
-  <a class="tile" style="background-color: hsl(<%= (light.hue / 255) %> ,<%= (light.saturation / 2.55).to_i %>% ,<%= (light.brightness / 2.55).to_i %>%)")>
-    <span><%= light.name %></span>
-    <i class="fa fa-3x fa-lightbulb-o <%= light.on? ? "on" : "off" %> "></i>
-  </a>
+  <% tile_class = light.on? ? "tile on" : "tile off" %>
+  <%= link_to light_path(light.id), class: tile_class do%>
+    <span class="title"><%= light.name %></span>
+    <i class="fa fa-2x fa-lightbulb-o"></i>
+    <span class="light-color" style="background-color: hsl(<%= (light.hue / 255) %>, <%= (light.saturation / 2.55).to_i %>%, <%= (light.brightness / 3.1875 + 20).to_i %>%)"></span>
+  <% end %>
 <% end %>

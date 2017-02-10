@@ -1,12 +1,11 @@
 class LightsController < ApplicationController
-  before_action :set_light, only: [:show, :edit, :update, :destroy]
+  before_action :set_light, only: [:show, :edit, :update, :destroy, :on, :off]
 
   def index
     @lights = Light.all
   end
 
   def show
-    @light = Light.find params[:id]
   end
 
   def edit
@@ -22,6 +21,22 @@ class LightsController < ApplicationController
         format.json { render json: @light.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def on
+    @light.on!
+
+    respond_to do |format|
+      format.json { render json: {ok: true} }
+    end    
+  end
+
+  def off
+    @light.off!
+
+    respond_to do |format|
+      format.json { render json: {ok: true} }
+    end    
   end
 
   private

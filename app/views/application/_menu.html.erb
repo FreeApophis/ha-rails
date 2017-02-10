@@ -1,17 +1,32 @@
 <ul class="menu">
   <li>
-    <a href="<%= root_path %>"><i class="fa fa-fw fa-2x fa-dashboard"></i></a>
+    <%= link_to root_path do %>
+      <i class="fa fa-fw fa-2x fa-dashboard"></i>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to light_groups_path do %>
+      <i class="fa fa-fw fa-2x fa-home"></i>
+    <% end %>
   </li>
   <li>
     <%= link_to lights_path do %>
       <i class="fa fa-fw fa-2x fa-lightbulb-o"></i>
     <% end %>
   </li>
-  <li><a href="http://foodblog.ch"><i class="fa fa-fw fa-2x fa-cutlery"></i></a></li>
+  <li>
+    <%= link_to recipes_path do %>
+      <i class="fa fa-fw fa-2x fa-cutlery"></i>
+    <% end %>
+  </li>
   <li>
     <%= link_to public_transport_path do %>
       <i class="fa fa-fw fa-2x fa-bus"></i>
     <% end %>
   </li>
-  <li><a href="http://sbb.ch"><i class="fa fa-fw fa-2x fa-image"></i></a></li>
+  <li>
+    <%= link_to images_path do %>
+      <i class="fa fa-fw fa-2x fa-image"></i>
+    <% end %>
+  </li>
 </ul>

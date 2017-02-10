@@ -1,2 +1,9 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<% @recipes.each do |recipe| %>
+  <%= link_to recipe_path(recipe['slug']), class: 'tile' do%>
+    <span class="title"><%= recipe['name'] %></span>
+    <% image = recipe['images'].first if recipe['images']%>
+    <% if image %>
+      <%= image_tag("http://foodblog.ch" + image['url']) %>
+    <% end %>
+  <% end %>
+<% end %>

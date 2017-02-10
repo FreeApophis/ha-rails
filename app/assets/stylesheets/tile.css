@@ -1,8 +1,8 @@
 .tile {
   float: left;
-  width: 140px;
+  width: 150px;
   height: 130px;
-  padding: 8px;
+  padding: 5px;
   margin: 5px;
   text-align: center;
   vertical-align: middle;
@@ -10,26 +10,61 @@
   border: solid 1px rgba(255, 255, 255, 0.3);
   background-color: #21232D;
   position: relative;
+  color: rgba(255, 255, 255, 0.75);
+  overflow: hidden;
+}
+
+.tile span.title {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tile span.light-color {
+  position: absolute;
+  display: block;
+  left: 15px;
+  bottom: 15px;
+  border-radius: 100%;
+  border: 2px solid #111;
+  width: 24px;
+  height: 24px;
 }
 
 .tile i {
-  text-decoration: none;
-  border: none;
   position: relative;
+  display:block;
   background: #272833;
   border-radius: 100%;
   display: inline-block;
   text-align: center;
-  line-height: 2em;
-  width: 2em;
-  margin: 0.4em;
-}
-
-.tile i.on {
-  background: rgb(233, 147, 26);
-}
-
-.tile span {
-  position: absolute;
+  line-height: 68px;
+  width: 68px;
+  height: 68px;
   top: 0;
+  left: 0;
+  margin: 35px 40px 25px 40px;
+  border: solid 1px #111;  
+  text-decoration: none;
+  transition: background 0.5s;
+}
+
+.tile.on i {
+  background: rgb(233, 147, 26);
+  transition: background 0.5s;
+}
+
+.tile img {
+  position: relative;
+  overflow: hidden;
+  width: 160px;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-top: 50px;
+  
 }

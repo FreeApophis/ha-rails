@@ -1,2 +1,19 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h3><%= @recipe['name'] %></h3>
+
+<% image = @recipe['images'].first if @recipe['images']%>
+
+<% if image %>
+  <%= image_tag("http://foodblog.ch" + image['url'], class: 'thumb', style: 'float: right;') %>
+<% end %>
+
+<ul>
+  <% formatter = UnitNumberFormatter.new %>
+  <% @recipe['ingredients'].each do |ingredient| %>
+    <li><%= formatter.format(ingredient['amount'].to_f) + ingredient['u'] + ' ' + ingredient['ingredient'] %></li>
+  <% end %>
+</ul>
+
+
+<% @recipe['preparation_steps'].each do |step| %>
+    <p><%= step['step'] %></p>
+<% end %>

@@ -4,6 +4,25 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show]
   resource :public_transport, only: [:show]
 
-  resources :lights
-  resources :recipes, only[:index, :show]
+  resources :images, only: [:index] do
+    collection do 
+      get 'random'
+    end
+  end
+
+  resources :lights do
+    member do 
+      put 'on', :defaults => { :format => 'json' }
+      put 'off', :defaults => { :format => 'json' }
+    end
+  end
+
+  resources :light_groups do
+    member do 
+      put 'on', :defaults => { :format => 'json' }
+      put 'off', :defaults => { :format => 'json' }
+    end
+  end
+
+  resources :recipes, only: [:index, :show]
 end

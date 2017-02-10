@@ -16,7 +16,6 @@
 //= require moment
 //= require_tree .
 
-
 var intervalStarted = false;
 
 function update() {
@@ -25,11 +24,31 @@ function update() {
   $("#time").text(now.format("H:mm:ss"));
 }  
 
+function nextImage() {
+  $("#random_slider").append("<img src=\"xxx\"></img>");
+  console.log("nextImage");
+}  
+
 function refresh_page() {
   console.log("refresh page start")
   Turbolinks.visit(location.toString());
   console.log("refresh page end")
-}  
+}
+
+function nameOnOff(on) {
+  return on ? 'on' : 'off';
+}
+
+function toggleLight(on, self) {
+  $.ajax({
+    url: $(self).attr('href') + '/' + nameOnOff(!on),
+    type: 'PUT',
+    success: function(data) {
+      $(self).removeClass(nameOnOff(on)).addClass(nameOnOff(!on));
+      console.log($(self).attr('href') + ' ' + nameOnOff(!on));
+    }
+  });
+}
 
 $( document ).on('turbolinks:load', function() {
   $(function() {
@@ -38,5 +57,36 @@ $( document ).on('turbolinks:load', function() {
       intervalStarted = true;
       setInterval(update, 1000);
     }
+    if ($("#random_slider").length) {
+      setInterval(nextImage, 5000);
+    }
+
+    
+    $('.lights .tile, .light_groups .tile').mousedown(function(e){
+      $(this).data('lastPressed', new Date().getTime());
+    }).mouseup(function(e){
+      var lastPressed = $(this).data('lastPressed');
+      if (lastPressed){
+        var duration = new Date().getTime() - lastPressed;
+        $(this).data('lastPressed', false);
+        $(this).data('longClick', duration > 750);
+      }
+    }).mouseout(function(e){
+      $(this).data('lastPressed', false);
+    }).click(function(e) {
+      var longClick = $(this).data('longClick');
+      if (longClick) {
+        console.log("long click"); 
+      } else {
+        console.log("click");
+        if ($(this).hasClass("on")) {
+          toggleLight(true, this);
+        } else {
+          toggleLight(false, this);
+        }
+        e.preventDefault();
+      }
+      $(this).data('longClick', false);
+    });
   });
 })
