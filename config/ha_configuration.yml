@@ -2,6 +2,21 @@ default: &default
   public_transport:
     enabled: true
     station: "Altstetten"
+  my_strom:
+    - Server Switch:
+        type: switch
+        icon: fa-server
+        ip: 192.168.88.10
+    - PC Switch:
+        type: switch
+        icon: fa-laptop
+        ip: 192.168.88.29
+    - Button A:
+        type: button
+        ip: 192.168.88.0
+    - Button B:
+        type: button
+        ip: 192.168.88.0
 
 development:
   <<: *default

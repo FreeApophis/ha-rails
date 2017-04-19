@@ -25,6 +25,18 @@
   white-space: nowrap;
 }
 
+.tile span.info {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 110px;
+  left: 0;
+  right: 0;
+  background-color: #444;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .tile span.light-color {
   position: absolute;
   display: block;

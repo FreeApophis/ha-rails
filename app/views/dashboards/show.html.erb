@@ -7,3 +7,13 @@
   <span class="title">Gutenacht</span>
   <i class="fa fa-2x fa-moon-o"></i>
 <% end %>
+
+
+<% @switches.each do |switch| %>
+  <% tile_class = switch.on? ? "tile on" : "tile off" %>
+  <%= link_to '', class: tile_class do%>
+    <span class="title"><%= switch.name %></span>
+    <span class="info"><%= number_with_precision(switch.power, precision: 1) %>W</span>
+    <i class="fa fa-2x <%= switch.icon %>"></i>
+  <% end %>
+<% end %>
