@@ -1,5 +1,6 @@
 ul.menu {
-  position: absolute;
+  position: fixed;
+  left: 0;
   top: 31px;
   padding: 0;
   margin: 0;
@@ -9,6 +10,12 @@ ul.menu {
   border-bottom: solid 5px #aaa;
   border-bottom-right-radius: 5px;
 }
+
+@media screen and (min-width: 820px) {
+  ul.menu{
+    position: absolute;
+  }
+}	
 
 ul.menu li a {
   color: rgba(249, 249, 249, .9);

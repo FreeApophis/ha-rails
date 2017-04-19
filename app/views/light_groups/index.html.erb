@@ -1,0 +1,7 @@
+<% @light_groups.each do |light_group| %>
+  <% tile_class = light_group.on? ? "tile on" : "tile off" %>
+  <%= link_to light_group_path(light_group.id), class: tile_class do%>
+    <span class="title"><%= light_group.name %></span>
+    <i class="fa fa-2x fa-home"></i>
+  <% end %>
+<% end %>
